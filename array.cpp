@@ -1,5 +1,5 @@
 #include <iostream>
-
+/*array questions*/
 
 
 int findLen(int a[]){
