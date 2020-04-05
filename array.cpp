@@ -1,6 +1,6 @@
 #include <iostream>
 /* All questions #array */
-
+/*Array section*/
 
 int findLen(int a[]){
     int i=0;
