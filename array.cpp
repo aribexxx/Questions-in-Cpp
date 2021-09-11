@@ -1,7 +1,7 @@
 #include <iostream>
 /* All questions #array */
 /*Array section*/
-
+namespace array{
 int findLen(int a[]){
     int i=0;
     while(a[i]!='\0'){
@@ -43,13 +43,14 @@ void replaceSpace (char str[],int length) {
     }
 
 };
- void printArray(int arr[]){
+//static functions are functions that are only visible to other functions in the same file (more precisely the same translation unit).
+void printArray(int arr[]){
      for(int i=0;i<findLen(arr);++i) {
          printf("%i,",arr[i]);
      }
 
      printf("\n");
- }
+ };
 
 void insertBtoA_sorted(int a[],int b[]){
     int a_len= findLen(a);
@@ -72,26 +73,28 @@ void insertBtoA_sorted(int a[],int b[]){
         }
 
     }
-
-
 }
-
-
+};
 
 int main() {
     //Q5 TESTING
     char str[30]="we are happy";
-    replaceSpace(str,30);
+    array::replaceSpace(str,30);
     printf("%s",str);
 
     //  Q5_2 testing
     int a[100]={1,2,3,5,7,9,23};
     int b[20]={2,4,6,8,10,20};
     printf("before");
-    printArray(a);
-    insertBtoA_sorted(a,b);
+    array::printArray(a);
+    array:: insertBtoA_sorted(a,b);
     printf("after");
-    printArray(a);
+    array::printArray(a);
 
     return 0;
 }
+
+
+
+
+
