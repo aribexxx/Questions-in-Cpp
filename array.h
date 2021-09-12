@@ -1,5 +1,11 @@
 
+     
+extern int findLen(int a[]);
 
-int findLen(int a[]){}
-void printArray(int arr[]){}
-void replaceSpace (char str[],int length) {}
+extern void printArray(int arr[]);
+
+void replaceSpace (char str[],int length);
+//an inline request to compiler
+inline void hello(){
+std::cout << "hello" << std::endl;
+};
