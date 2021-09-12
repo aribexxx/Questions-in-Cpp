@@ -113,7 +113,33 @@ vector<int> countBitsDPHigh(int n) {
         }
      return s.substr(begin,maxLen);
     }
-            
+   
+    pair<int,int> expandAroundCenter(const string &s,int left,int right){
+        while(left>=0&&right<s.size()&&s[left]==s[right]){
+            --left;
+            ++right;
+        }
+        return std::make_pair(left + 1, right - 1);
+    } 
+    string longestPalindromExpand(string s){
+        int start=0,end=0;//to keep track of maxlen substring 's start and end.
+        for(int i=0;i<s.size();i++){
+            //this follows c++17 syntax
+           auto [left1, right1]=expandAroundCenter(s,i,i);
+           auto [left2, right2]=expandAroundCenter(s,i,i+1);
+           if(right1-left1>end-start){
+               start=left1;
+               end=right2;
+           }
+           if(right2-left2>end-start){
+               start=left2;
+               end=right2;
+           }
+
+        }
+        return s.substr(start,end-start);
+    }   
+    
 };
 int main(){
 Solution sol1;
@@ -130,8 +156,10 @@ int arr[] = {'d'};
 Solution sol3;
 //so printArray(arr); in array.cpp will not be visible in dp_easy.cpp
 string in="babad";
-std::cout << sol3.longestPalindrome(in) << std::endl;
-;
+string in2="aba";
+//std::cout << sol3.longestPalindrome(in) << std::endl;
+std::cout << "ooout"<<sol3.longestPalindromExpand(in2) << std::endl;
+
 //this hello() is visible becuz its implementation is declared in the imported header file
 hello();
 Solution sol4;
